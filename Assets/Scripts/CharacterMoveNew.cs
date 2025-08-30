@@ -30,10 +30,8 @@ public class CharacterMoveNew : MonoBehaviour
     {
         // 初始化当前网格位置
         currentGridPosition = gridManager.GetGridPosition(transform.position);
-
         // 初始化消息文本
-        if (messageText != null)
-            messageText.text = "";
+        if (messageText != null) messageText.text = "";
     }
 
     void Update()
@@ -43,9 +41,7 @@ public class CharacterMoveNew : MonoBehaviour
         {
             Vector2Int? targetGridPos = gridManager.GetGridPositionFromMouse();
             if (targetGridPos.HasValue)
-            {
                 MoveToGridPosition(targetGridPos.Value);
-            }
         }
     }
 
@@ -53,12 +49,9 @@ public class CharacterMoveNew : MonoBehaviour
     public void MoveToGridPosition(Vector2Int targetPos)
     {
         // 清除之前的消息
-        if (messageText != null)
-            messageText.text = "";
-
+        if (messageText != null) messageText.text = "";
         // 如果已经在目标位置，不做任何操作
-        if (currentGridPosition == targetPos)
-            return;
+        if (currentGridPosition == targetPos) return;
 
         // 计算路径
         movePath = CalculatePath(currentGridPosition, targetPos);
