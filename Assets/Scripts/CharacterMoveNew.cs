@@ -26,8 +26,8 @@ public class CharacterMoveNew : MonoBehaviour
         new Vector2Int(-1, 0)
     };
 
-    private Vector2 lastMoveDir = Vector2.right; // 记录最后移动方向
-    private int lastDirectionIndex = 0; // 记录最后方向索引
+    private Vector2 lastMoveDir = new Vector2(1, 1); // 默认右上
+    private int lastDirectionIndex = 0; // 0:右上, 1:右下, 2:左上, 3:左下
 
     void Start()
     {
@@ -48,10 +48,10 @@ public class CharacterMoveNew : MonoBehaviour
                 MoveToGridPosition(targetGridPos.Value);
         }
         // 当角色未移动时，播放idle动画
-        if (!isMoving && animator != null)
-        {
-            animator.SetBool("IsMoving", false);
-        }
+        //if (!isMoving && animator != null)
+        //{
+        //    animator.SetBool("IsMoving", false);
+        //}
     }
 
     public void MoveToGridPosition(Vector2Int targetPos)
@@ -144,7 +144,7 @@ public class CharacterMoveNew : MonoBehaviour
             if (moveDir != Vector2.zero)
             {
                 lastMoveDir = moveDir;
-                lastDirectionIndex = GetDirectionIndex(moveDir);
+                lastDirectionIndex = GetDiagonalDirectionIndex(moveDir);
             }
 
             // 设置动画参数（只用整数方向）
@@ -180,13 +180,24 @@ public class CharacterMoveNew : MonoBehaviour
         }
     }
 
-    // 获取方向索引（0:右, 1:下, 2:上, 3:左）
-    private int GetDirectionIndex(Vector2 dir)
+    // 获取对角方向索引（0:右上, 1:右下, 2:左上, 3:左下）
+    private int GetDiagonalDirectionIndex(Vector2 dir)
     {
-        if (Vector2.Dot(dir, Vector2.right) > 0.7f) return 0;    // 右
-        if (Vector2.Dot(dir, Vector2.down) > 0.7f) return 1;     // 下
-        if (Vector2.Dot(dir, Vector2.up) > 0.7f) return 2;       // 上
-        if (Vector2.Dot(dir, Vector2.left) > 0.7f) return 3;     // 左
-        return 0; // 默认右
+        // 右上
+        if (dir.x > 0 && dir.y > 0) return 2;
+        // 右下
+        if (dir.x > 0 && dir.y < 0) return 0;
+        // 左上
+        if (dir.x < 0 && dir.y > 0) return 3;
+        // 左下
+        if (dir.x < 0 && dir.y < 0) return 1;
+
+        // 如果正好在轴上，优先x方向
+        //if (dir.x > 0) return dir.y >= 0 ? 0 : 1;
+        //if (dir.x < 0) return dir.y >= 0 ? 2 : 3;
+        //if (dir.y > 0) return 0; // 默认右上
+        //if (dir.y < 0) return 1; // 默认右下
+
+        return 0; // 默认右上
     }
 }
