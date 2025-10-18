@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeDestroy : MonoBehaviour
 {
     public float timer;
+    public GameObject thingToActive;
 
     void Update()
     {
@@ -12,6 +13,10 @@ public class TimeDestroy : MonoBehaviour
         if(timer <= 0)
         {
             Destroy(gameObject);
+            if (thingToActive != null)
+            {
+                thingToActive.SetActive(true);
+            }
         }
     }
 }
