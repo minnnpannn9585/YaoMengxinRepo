@@ -14,8 +14,10 @@ public class ComicAppearFinish : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            thingToDestroy.SetActive(false);
-            thingToOpen.SetActive(true);
+            if (thingToDestroy != null)
+                thingToDestroy.SetActive(false);
+            if (thingToOpen != null)
+                thingToOpen.SetActive(true);
             
         }
     }
