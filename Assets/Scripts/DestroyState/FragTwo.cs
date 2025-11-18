@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pain01 : MonoBehaviour
+public class FragTwo : MonoBehaviour
 {
     public int flameUse;
     public int residualChange;
