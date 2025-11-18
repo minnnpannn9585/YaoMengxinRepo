@@ -40,13 +40,17 @@ public class LevelTwoManager : MonoBehaviour
         flameValue -= flameUse;
 
         //calculate residual value
-        residualValue += minusChange;
+        residualValue = 3;
 
         for (int i = 0; i < levelTwoFrags.Length; i++)
         {
             if (levelTwoFrags[i].gameObject.activeSelf)
             {
                 residualValue += levelTwoFrags[i].noDestroyChange;
+            }
+            if (!levelTwoFrags[i].gameObject.activeSelf)
+            {
+                residualValue += levelTwoFrags[i].destroyChange;
             }
         }
         print(residualValue);
@@ -68,16 +72,7 @@ public class LevelTwoManager : MonoBehaviour
 
     public void CheckEnding()
     {
-        if(residualValue <= 3)
-        {
-            //load next
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
-        {
-            //reload current
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        print("finish");
 
     }
 }
