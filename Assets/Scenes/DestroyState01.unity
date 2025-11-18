@@ -466,8 +466,8 @@ GameObject:
   - component: {fileID: 452450363}
   - component: {fileID: 452450362}
   - component: {fileID: 452450364}
-  - component: {fileID: 452450366}
   - component: {fileID: 452450365}
+  - component: {fileID: 452450366}
   m_Layer: 0
   m_Name: line001
   m_TagString: Untagged
@@ -617,11 +617,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 452450361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6183b546a4e4348e195d9997cc338cab, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &509574328
 GameObject:
@@ -634,8 +632,8 @@ GameObject:
   - component: {fileID: 509574330}
   - component: {fileID: 509574329}
   - component: {fileID: 509574331}
-  - component: {fileID: 509574333}
   - component: {fileID: 509574332}
+  - component: {fileID: 509574333}
   m_Layer: 0
   m_Name: line004
   m_TagString: Untagged
@@ -785,11 +783,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 509574328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6183b546a4e4348e195d9997cc338cab, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &560278206
 GameObject:
@@ -886,8 +882,8 @@ GameObject:
   - component: {fileID: 667099718}
   - component: {fileID: 667099717}
   - component: {fileID: 667099719}
-  - component: {fileID: 667099720}
   - component: {fileID: 667099721}
+  - component: {fileID: 667099722}
   m_Layer: 0
   m_Name: line006
   m_TagString: Untagged
@@ -1007,21 +1003,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7702808, y: 1.6978128}
   m_EdgeRadius: 0
---- !u!114 &667099720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667099716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6183b546a4e4348e195d9997cc338cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
-  burnParamName: IsBurning
 --- !u!95 &667099721
 Animator:
   serializedVersion: 5
@@ -1043,6 +1024,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &667099722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667099716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnParamName: IsBurning
 --- !u!1 &703807387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -2
+  noDestroyChange: 3
   burnParamName: IsBurning
 --- !u!95 &1063997925
 Animator:
@@ -1474,8 +1469,8 @@ GameObject:
   - component: {fileID: 1160847096}
   - component: {fileID: 1160847095}
   - component: {fileID: 1160847097}
-  - component: {fileID: 1160847099}
   - component: {fileID: 1160847098}
+  - component: {fileID: 1160847099}
   m_Layer: 0
   m_Name: line002
   m_TagString: Untagged
@@ -1625,11 +1620,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1160847094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6183b546a4e4348e195d9997cc338cab, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &1180711877
 GameObject:
@@ -1948,11 +1941,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flameValue: 0
   residualValue: 0
+  levelOneFrags:
+  - {fileID: 2141769064}
+  - {fileID: 2032351008}
+  - {fileID: 1063997924}
   flameRenderer: {fileID: 703807388}
   flameSprites:
   - {fileID: 21300000, guid: 061a7e3aeecb3744cb6acb1a7e2f5228, type: 3}
   - {fileID: 21300000, guid: d0ff78d1e2c1ab846839cd6eaa1c76a6, type: 3}
   - {fileID: 21300000, guid: 4c21d9a45ad540a439621ab72c527916, type: 3}
+  residualRenderer: {fileID: 1938753033}
+  residualSprites:
+  - {fileID: 21300000, guid: 2f6b1fc3ea236bd4181e00503881bd51, type: 3}
+  - {fileID: 21300000, guid: 1c0eb7a07b462c5478b4e03f1603312f, type: 3}
+  - {fileID: 21300000, guid: 2f6b1fc3ea236bd4181e00503881bd51, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 1c0eb7a07b462c5478b4e03f1603312f, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
 --- !u!1 &1728758692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,8 +1978,8 @@ GameObject:
   - component: {fileID: 1728758697}
   - component: {fileID: 1728758696}
   - component: {fileID: 1728758695}
-  - component: {fileID: 1728758694}
   - component: {fileID: 1728758693}
+  - component: {fileID: 1728758698}
   m_Layer: 0
   m_Name: line003
   m_TagString: Untagged
@@ -1994,21 +2008,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1728758694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728758692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6183b546a4e4348e195d9997cc338cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
-  burnParamName: IsBurning
 --- !u!61 &1728758695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2121,6 +2120,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1788506187}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1728758698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728758692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnParamName: IsBurning
 --- !u!1 &1783952018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,7 +2393,7 @@ GameObject:
   - component: {fileID: 1938753034}
   - component: {fileID: 1938753033}
   m_Layer: 0
-  m_Name: R=5
+  m_Name: residualPic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2554,7 +2566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -3
+  noDestroyChange: 8
   burnParamName: IsBurning
 --- !u!61 &2032351009
 BoxCollider2D:
@@ -2633,8 +2646,8 @@ GameObject:
   - component: {fileID: 2116298688}
   - component: {fileID: 2116298687}
   - component: {fileID: 2116298689}
-  - component: {fileID: 2116298691}
   - component: {fileID: 2116298690}
+  - component: {fileID: 2116298691}
   m_Layer: 0
   m_Name: line005
   m_TagString: Untagged
@@ -2784,11 +2797,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116298686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6183b546a4e4348e195d9997cc338cab, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &2141769059
 GameObject:
@@ -2956,7 +2967,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -13
+  noDestroyChange: 4
   burnParamName: IsBurning
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

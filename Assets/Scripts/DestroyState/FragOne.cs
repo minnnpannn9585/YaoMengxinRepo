@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pain01 : MonoBehaviour
+public class FragOne : MonoBehaviour
 {
     public int flameUse;
-    public int residualChange;
+    public int destroyChange;
+    public int noDestroyChange;
     public string burnParamName = "IsBurning";
 
     // 组件引用
@@ -66,7 +67,9 @@ public class Pain01 : MonoBehaviour
         {
             // 长按到动画结束：标记为已完成并销毁碎片
             _isBurnCompleted = true;
-            Destroy(gameObject); // 销毁当前碎片
+            gameObject.SetActive(false);
+            LevelOneManager.Instance.UseFlame(flameUse, destroyChange);
+            
         }
         else
         {

@@ -418,11 +418,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 30009877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d1e28da682def4aae01051d2ced25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &118365390
 GameObject:
@@ -832,7 +830,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -2
+  noDestroyChange: 3
   burnParamName: IsBurning
 --- !u!1 &560278206
 GameObject:
@@ -1084,7 +1083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -3
+  noDestroyChange: 8
   burnParamName: IsBurning
 --- !u!1 &703807387
 GameObject:
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 703807389}
   - component: {fileID: 703807388}
   m_Layer: 0
-  m_Name: Remain1
+  m_Name: flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,11 +1332,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 820832696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d1e28da682def4aae01051d2ced25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &845782538
 GameObject:
@@ -1500,11 +1498,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 845782538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d1e28da682def4aae01051d2ced25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &889113392
 GameObject:
@@ -1756,7 +1752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -13
+  noDestroyChange: 4
   burnParamName: IsBurning
 --- !u!1 &914750717
 GameObject:
@@ -2004,11 +2001,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1013893237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d1e28da682def4aae01051d2ced25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &1180711877
 GameObject:
@@ -2313,7 +2308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -2
+  noDestroyChange: 3
   burnParamName: IsBurning
 --- !u!1 &1398266789
 GameObject:
@@ -2611,11 +2607,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407662996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d1e28da682def4aae01051d2ced25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &1407835594
 GameObject:
@@ -2626,6 +2620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1407835595}
+  - component: {fileID: 1407835596}
   m_Layer: 0
   m_Name: LevelTwoManager
   m_TagString: Untagged
@@ -2648,6 +2643,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407835596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407835594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4250b3620e1fc314a911e09dd4f446b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameValue: 0
+  residualValue: 0
+  levelTwoFrags:
+  - {fileID: 571780713}
+  - {fileID: 1482664789}
+  - {fileID: 1385438494}
+  - {fileID: 482592221}
+  - {fileID: 902430494}
+  - {fileID: 2133765614}
+  flameRenderer: {fileID: 703807388}
+  flameSprites:
+  - {fileID: 21300000, guid: 061a7e3aeecb3744cb6acb1a7e2f5228, type: 3}
+  - {fileID: 21300000, guid: d0ff78d1e2c1ab846839cd6eaa1c76a6, type: 3}
+  - {fileID: 21300000, guid: 4c21d9a45ad540a439621ab72c527916, type: 3}
+  residualRenderer: {fileID: 1938753033}
+  residualSprites:
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 57ec6c7ab3499d84da038a9bab36dbba, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 28ee9d953ea15b94980177c9e073e257, type: 3}
+  - {fileID: 21300000, guid: 58201b3292b1ec1428d7803148b34478, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 2f6b1fc3ea236bd4181e00503881bd51, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 70a74d9f185069143a941fc27e4b8b94, type: 3}
+  - {fileID: 21300000, guid: a039dae260a2c7645aa7d225b139f28d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 1c0eb7a07b462c5478b4e03f1603312f, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 4a256d6bd16fa8a46868f40a4429fbbf, type: 3}
+  - {fileID: 21300000, guid: 550cfa4f977a1df43a2b7d3f9a1f1db7, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 4bafc7db103048046951f658f9843174, type: 3}
+  - {fileID: 21300000, guid: bfb0bd86b885bfa4fb546d021d403569, type: 3}
+  - {fileID: 21300000, guid: 71335ca4544e02c4285abeeaee9ddd36, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: 6413295b75234d34ab84ab89ab874357, type: 3}
+  - {fileID: 21300000, guid: 017f58dffda21b74083d7b42b494a75d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: dfb7525115547d140b131011d64a2c2d, type: 3}
+  - {fileID: 21300000, guid: a0702dfc61f99424a8c2d46f1d16394f, type: 3}
 --- !u!1 &1482664783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,7 +2878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -3
+  noDestroyChange: 8
   burnParamName: IsBurning
 --- !u!1 &1783952018
 GameObject:
@@ -3084,11 +3149,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805145961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d1e28da682def4aae01051d2ced25e, type: 3}
+  m_Script: {fileID: 11500000, guid: 468e891fe1a334c42bd80675be26c93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameUse: 0
-  residualChange: 0
   burnParamName: IsBurning
 --- !u!1 &1849686506
 GameObject:
@@ -3204,7 +3267,7 @@ GameObject:
   - component: {fileID: 1938753034}
   - component: {fileID: 1938753033}
   m_Layer: 0
-  m_Name: R=5
+  m_Name: residualPic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3251,7 +3314,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 70a74d9f185069143a941fc27e4b8b94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f6b1fc3ea236bd4181e00503881bd51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3443,7 +3506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameUse: 1
-  residualChange: 0
+  destroyChange: -13
+  noDestroyChange: 4
   burnParamName: IsBurning
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

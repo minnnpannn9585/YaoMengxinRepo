@@ -11,8 +11,13 @@ public class LevelOneManager : MonoBehaviour
     [HideInInspector]
     public int residualValue;
 
+    public FragOne[] levelOneFrags;
+
     public SpriteRenderer flameRenderer;
     public Sprite[] flameSprites;
+
+    public SpriteRenderer residualRenderer;
+    public Sprite[] residualSprites;
 
     private void Awake()
     {
@@ -30,17 +35,29 @@ public class LevelOneManager : MonoBehaviour
         flameRenderer.sprite = flameSprites[flameValue - 1];
     }
 
-    public void UseFlame(int flameUse, int residualChange)
+    public void UseFlame(int flameUse, int minusChange)
     {
         flameValue -= flameUse;
+
+        //calculate residual value
+        residualValue += minusChange;
+
+        for (int i = 0; i < levelOneFrags.Length; i++)
+        {
+            if(levelOneFrags[i].gameObject.activeSelf)
+            {
+                residualValue += levelOneFrags[i].noDestroyChange;
+            }
+        }
+        print(residualValue);
+
+        residualRenderer.sprite = residualSprites[residualValue - 1];
+
         if (flameValue > 0) 
         {
             flameRenderer.sprite = flameSprites[flameValue - 1];
         }
-
-        residualValue += residualChange;
-        
-        if(flameValue <= 0)
+        else if(flameValue <= 0)
         {
             CheckEnding();
         }

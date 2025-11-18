@@ -1,12 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FragTwo : MonoBehaviour
+public class Line : MonoBehaviour
 {
-    public int flameUse;
-    public int destroyChange;
-    public int noDestroyChange;
     public string burnParamName = "IsBurning";
 
     // 组件引用
@@ -67,9 +64,7 @@ public class FragTwo : MonoBehaviour
         {
             // 长按到动画结束：标记为已完成并销毁碎片
             _isBurnCompleted = true;
-
-            gameObject.SetActive(false);// 销毁当前碎片
-            LevelTwoManager.Instance.UseFlame(flameUse, destroyChange);
+            Destroy(gameObject); // 销毁当前碎片
         }
         else
         {
