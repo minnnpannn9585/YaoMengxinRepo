@@ -18,6 +18,14 @@ public class LevelOneManager : MonoBehaviour
 
     public SpriteRenderer residualRenderer;
     public Sprite[] residualSprites;
+    
+    public GameObject charaNormal;
+    public GameObject charaAddict1;
+    public GameObject charaAddict2;
+    public GameObject charaLost1;
+    public GameObject charaLost2;
+
+    private bool levelEnd = false;
 
     private void Awake()
     {
@@ -37,6 +45,10 @@ public class LevelOneManager : MonoBehaviour
 
     public void UseFlame(int flameUse, int minusChange)
     {
+        if (levelEnd)
+        {
+            return;
+        }
         flameValue -= flameUse;
 
         //calculate residual value
@@ -49,6 +61,7 @@ public class LevelOneManager : MonoBehaviour
                 residualValue += levelOneFrags[i].noDestroyChange;
             }
         }
+        SwitchImage(residualValue);
         print(residualValue);
 
         residualRenderer.sprite = residualSprites[residualValue - 1];
@@ -76,5 +89,49 @@ public class LevelOneManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+    }
+    
+    public void SwitchImage(int residualValue)
+    {
+        if (residualValue <= 3 && residualValue >= -2)
+        {
+            charaNormal.SetActive(true);
+            charaAddict1.SetActive(false);
+            charaAddict2.SetActive(false);
+            charaLost1.SetActive(false);
+            charaLost2.SetActive(false);
+        }
+        else if (residualValue >= 4 && residualValue <= 11)
+        {
+            charaNormal.SetActive(false);
+            charaAddict1.SetActive(true);
+            charaAddict2.SetActive(false);
+            charaLost1.SetActive(false);
+            charaLost2.SetActive(false);
+        }
+        else if (residualValue >= 12)
+        {
+            charaNormal.SetActive(false);
+            charaAddict1.SetActive(false);
+            charaAddict2.SetActive(true);
+            charaLost1.SetActive(false);
+            charaLost2.SetActive(false);
+        }
+        else if (residualValue >= -8 && residualValue <= -4)
+        {
+            charaNormal.SetActive(false);
+            charaAddict1.SetActive(false);
+            charaAddict2.SetActive(false);
+            charaLost1.SetActive(true);
+            charaLost2.SetActive(false);
+        }
+        else
+        {
+            charaNormal.SetActive(false);
+            charaAddict1.SetActive(false);
+            charaAddict2.SetActive(false);
+            charaLost1.SetActive(false);
+            charaLost2.SetActive(true);
+        }
     }
 }
