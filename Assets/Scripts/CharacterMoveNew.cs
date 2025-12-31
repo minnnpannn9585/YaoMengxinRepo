@@ -45,7 +45,11 @@ public class CharacterMoveNew : MonoBehaviour
         {
             Vector2Int? targetGridPos = gridManager.GetGridPositionFromMouse();
             if (targetGridPos.HasValue)
+            {
                 MoveToGridPosition(targetGridPos.Value);
+                GetComponent<AudioSource>().Play();
+            }
+                
         }
         // 当角色未移动时，播放idle动画
         //if (!isMoving && animator != null)
@@ -171,6 +175,8 @@ public class CharacterMoveNew : MonoBehaviour
 
         isMoving = false;
         movePath.Clear();
+
+        GetComponent<AudioSource>().Stop();
 
         // 移动结束，播放对应方向的idle动画
         if (animator != null)

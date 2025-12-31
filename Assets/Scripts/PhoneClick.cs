@@ -8,5 +8,6 @@ public class PhoneClick : MonoBehaviour
     private void OnMouseDown()
     {
         phoneCanvas.SetActive(true);
+        GetComponent<AudioSource>().Play();
     }
 }

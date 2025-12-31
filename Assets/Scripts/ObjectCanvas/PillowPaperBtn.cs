@@ -9,5 +9,6 @@ public class PillowPaperBtn : MonoBehaviour
     public void ShowPaper()
     {
         paperShow.SetActive(true);
+        GetComponent<AudioSource>().Play();
     }
 }
