@@ -32,6 +32,7 @@ public class FragOne : MonoBehaviour
     {
         if (_isBurnCompleted) return; // 已烧毁的碎片不响应
 
+        GetComponent<AudioSource>().Play(); // 播放音效
         _isPressing = true;
         _animator.SetBool(burnParamName, true); // 开始播放烧毁动画
     }
