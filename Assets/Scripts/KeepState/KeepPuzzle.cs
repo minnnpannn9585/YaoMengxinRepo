@@ -10,6 +10,9 @@ public class KeepPuzzle : MonoBehaviour
     Transform[] targets;
     public float rotationThreshold = 0.1f;
 
+    public GameObject mainCanvas;
+    public GameObject endingCanvas;
+
     private void Awake()
     {
         puzzles = new Transform[transform.childCount];
@@ -35,6 +38,8 @@ public class KeepPuzzle : MonoBehaviour
                 return;
             }
         }
+        mainCanvas.SetActive(false);
+        endingCanvas.SetActive(true);
         print("finish");
     }
     

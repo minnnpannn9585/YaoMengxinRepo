@@ -10,5 +10,6 @@ public class PhoneBookClose : MonoBehaviour
     public void CloseBook()
     {
         phoneCanvas.SetActive(false);
+        GetComponent<AudioSource>().Play();
     }
 }

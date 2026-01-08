@@ -9,5 +9,6 @@ public class PhoneBookOpen : MonoBehaviour
     public void OpenPhoneBook()
     {
         phoneCanvas.SetActive(true);
+        GetComponent<AudioSource>().Play(); 
     }
 }
