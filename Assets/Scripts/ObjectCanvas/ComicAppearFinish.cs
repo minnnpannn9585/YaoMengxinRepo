@@ -10,6 +10,7 @@ public class ComicAppearFinish : MonoBehaviour
     public GameObject thingToDestroy;
 
     public string subtitleMessage;
+    bool hasActivated = false;
 
     void Update()
     {
@@ -18,8 +19,13 @@ public class ComicAppearFinish : MonoBehaviour
         {
             if (thingToDestroy != null)
             {
-                thingToDestroy.GetComponent<MeshRenderer>().enabled = false;
-                SubtitleManager.Instance.ShowSubtitle(subtitleMessage);
+                thingToDestroy.SetActive(false);
+                if (!hasActivated)
+                {
+                    SubtitleManager.Instance.ShowSubtitle(subtitleMessage);
+                    hasActivated = true;
+                }
+                
             }
                 
             if (thingToOpen != null)
