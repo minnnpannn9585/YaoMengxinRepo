@@ -47,7 +47,7 @@ public class CharacterMoveNew : MonoBehaviour
             if (targetGridPos.HasValue)
             {
                 MoveToGridPosition(targetGridPos.Value);
-                GetComponent<AudioSource>().Play();
+                
             }
                 
         }
@@ -67,6 +67,7 @@ public class CharacterMoveNew : MonoBehaviour
 
         if (movePath != null && movePath.Count > 0)
         {
+            GetComponent<AudioSource>().Play();
             bool pathClear = true;
             for (int i = 0; i < movePath.Count - 1; i++)
             {

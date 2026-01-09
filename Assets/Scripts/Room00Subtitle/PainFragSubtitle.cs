@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneBookOpen : MonoBehaviour
+public class PainFragSubtitle : MonoBehaviour
 {
-    public GameObject phoneCanvas;
     public string subtitleMessage;
-
-    public void OpenPhoneBook()
+    private void OnMouseOver()
     {
-        phoneCanvas.SetActive(true);
-        GetComponent<AudioSource>().Play(); 
         SubtitleManager.Instance.ShowSubtitle(subtitleMessage);
     }
 }

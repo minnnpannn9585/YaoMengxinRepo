@@ -27,6 +27,9 @@ public class LevelTwoManager : MonoBehaviour
 
     private bool levelEnd = false;
 
+    public GameObject keepCanv;
+    public GameObject destCanv;
+
     private void Awake()
     {
         if(Instance == null)
@@ -86,6 +89,15 @@ public class LevelTwoManager : MonoBehaviour
     {
         print("finish");
         levelEnd = true;
+
+        if (residualValue >= 4)
+        {
+            keepCanv.SetActive(true);
+        }
+        else
+        {
+            destCanv.SetActive(true);
+        }
     }
 
     public void SwitchImage(int residualValue)

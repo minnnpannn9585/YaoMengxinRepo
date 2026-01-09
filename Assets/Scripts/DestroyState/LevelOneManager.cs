@@ -27,6 +27,9 @@ public class LevelOneManager : MonoBehaviour
 
     private bool levelEnd = false;
 
+    public string successSubtitle;
+    public string failureSubtitle;
+
     private void Awake()
     {
         if(Instance == null)
@@ -80,17 +83,25 @@ public class LevelOneManager : MonoBehaviour
     {
         if(residualValue <= 3)
         {
+            SubtitleManager.Instance.ShowSubtitle(successSubtitle);
             //load next
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(TimerLoadScene(SceneManager.GetActiveScene().buildIndex + 1));
         }
         else
         {
+            SubtitleManager.Instance.ShowSubtitle(failureSubtitle);
             //reload current
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(TimerLoadScene(SceneManager.GetActiveScene().buildIndex));
         }
 
     }
-    
+
+    IEnumerator TimerLoadScene(int sceneIndex)
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
     public void SwitchImage(int residualValue)
     {
         if (residualValue <= 3 && residualValue >= -2)

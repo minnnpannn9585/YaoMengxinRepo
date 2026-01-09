@@ -8,14 +8,20 @@ public class ComicAppearFinish : MonoBehaviour
     public GameObject thingToOpen;
 
     public GameObject thingToDestroy;
-    
+
+    public string subtitleMessage;
+
     void Update()
     {
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             if (thingToDestroy != null)
-                thingToDestroy.SetActive(false);
+            {
+                thingToDestroy.GetComponent<MeshRenderer>().enabled = false;
+                SubtitleManager.Instance.ShowSubtitle(subtitleMessage);
+            }
+                
             if (thingToOpen != null)
                 thingToOpen.SetActive(true);
             

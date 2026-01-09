@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneBookOpen : MonoBehaviour
+public class StartSubtitle : MonoBehaviour
 {
-    public GameObject phoneCanvas;
     public string subtitleMessage;
-
-    public void OpenPhoneBook()
+    // Start is called before the first frame update
+    void Start()
     {
-        phoneCanvas.SetActive(true);
-        GetComponent<AudioSource>().Play(); 
         SubtitleManager.Instance.ShowSubtitle(subtitleMessage);
     }
+
+    
 }

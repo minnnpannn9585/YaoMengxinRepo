@@ -12,6 +12,7 @@ public class KeepPuzzle : MonoBehaviour
 
     public GameObject mainCanvas;
     public GameObject endingCanvas;
+    public GameObject keepEndingCanvas;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class KeepPuzzle : MonoBehaviour
         }
         mainCanvas.SetActive(false);
         endingCanvas.SetActive(true);
+        keepEndingCanvas.SetActive(true);
         print("finish");
     }
     
